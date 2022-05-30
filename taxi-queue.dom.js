@@ -17,6 +17,8 @@ const departBtn = document.querySelector('.depart')
 //  }
 const taxiQueue = TaxiQueue();
 passengerQueueCounter.innerHTML = taxiQueue.queueLength();
+taxiQueueCounter.innerHTML = taxiQueue.taxiQueueLength();
+
 
 // DOM events
 
@@ -53,19 +55,16 @@ joinTaxiQueueBtn.addEventListener('click',function(){
 departBtn.addEventListener('click',function(){
 
     if(passengerQueueCounter >= 12 && taxiQueueCounter > 1 ){
-        taxiQueue.gettaxiDepart();
+        taxiQueue.taxiDepart();
     }
   
 
-    console.log(taxiQueue.getTaxiDepart())
-    console.log(taxiQueue.queueLength())
 
    // passengerQueueCounter.innerHTML = taxiQueue.taxiQueueLength();
 
     // localStorage.setItem('passenger_count',taxiQueue.queueLength())
-     localStorage.setItem('taxi_count',taxiQueue.getTaxiDepart())
+     localStorage.setItem('taxi_count',taxiQueue.taxiQueueLength())
 })
-passengerQueueCounter.innerHTML = taxiQueue.queueLength();
 
 
 
