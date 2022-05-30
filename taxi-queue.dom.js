@@ -53,18 +53,17 @@ joinTaxiQueueBtn.addEventListener('click',function(){
 departBtn.addEventListener('click',function(){
 
     if(passengerQueueCounter >= 12 && taxiQueueCounter > 1 ){
-        taxiQueue.taxiDepart();
+        taxiQueue.gettaxiDepart();
     }
   
 
-
-    console.log(taxiQueue.taxiDepart())
+    console.log(taxiQueue.getTaxiDepart())
     console.log(taxiQueue.queueLength())
 
    // passengerQueueCounter.innerHTML = taxiQueue.taxiQueueLength();
 
     // localStorage.setItem('passenger_count',taxiQueue.queueLength())
-    // localStorage.setItem('taxi_count',taxiQueue.taxiQueueLength())
+     localStorage.setItem('taxi_count',taxiQueue.getTaxiDepart())
 })
 passengerQueueCounter.innerHTML = taxiQueue.queueLength();
 
