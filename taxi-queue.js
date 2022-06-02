@@ -36,10 +36,12 @@ function TaxiQueue(counter) {
 
 	function taxiDepart(){
 		if(count >= 12 && (taxiCount > 1)){
-			Number(taxiCount -=1);
-			Number(count -= 12);
-
-			console.log(taxiCount)
+			 taxiCount = taxiCount - departCount;
+			// return taxiCount--;
+		}
+		if(count >= 12 && (taxiCount > 1)){
+			count = count - joinQueueCount
+			
 		}
 		
 	}

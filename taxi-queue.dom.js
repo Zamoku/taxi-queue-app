@@ -10,21 +10,14 @@ const joinTaxiQueueBtn = document.querySelector('.join_taxi_queue')
 const departBtn = document.querySelector('.depart')
 // create Factory Function instance
 
-let current_queue_count = 0
-let current_taxi_count = 0
+//let current_queue_count = 0
  const storedQueueCount = localStorage.getItem('passenger_count');
- if(storedQueueCount){
-      current_queue_count = (storedQueueCount)
-  }
-  const storedTaxiCount = localStorage.getItem('taxi_count');
- if(storedTaxiCount){
-      current_queue_count = (storedTaxiCount)
-  }
-
+//  if(storedQueueCount){
+//      current_queue_count = (storedQueueCount)
+//  }
 const taxiQueue = TaxiQueue();
-
-passengerQueueCounter.innerHTML = storedQueueCount || taxiQueue.queueLength();
-taxiQueueCounter.innerHTML = storedTaxiCount || taxiQueue.taxiQueueLength();
+passengerQueueCounter.innerHTML = taxiQueue.queueLength();
+taxiQueueCounter.innerHTML = taxiQueue.taxiQueueLength();
 
 
 // DOM events
@@ -61,19 +54,16 @@ joinTaxiQueueBtn.addEventListener('click',function(){
 })
 departBtn.addEventListener('click',function(){
 
-    
+    if(passengerQueueCounter >= 12 && taxiQueueCounter > 1 ){
         taxiQueue.taxiDepart();
-    
+    }
   
 
 
-    taxiQueueCounter.innerHTML = taxiQueue.taxiQueueLength();
-    passengerQueueCounter.innerHTML = taxiQueue.queueLength();
+   // passengerQueueCounter.innerHTML = taxiQueue.taxiQueueLength();
 
-    
-      localStorage.setItem('taxi_count',taxiQueue.taxiQueueLength())
-     localStorage.setItem('passenger_count',taxiQueue.queueLength())
-
+    // localStorage.setItem('passenger_count',taxiQueue.queueLength())
+     localStorage.setItem('taxi_count',taxiQueue.taxiQueueLength())
 })
 
 
